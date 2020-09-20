@@ -1,0 +1,47 @@
+Ques(2)
+
+#include <iostream>
+using namespace std;
+long digSum(long n)
+{
+    int sum;
+    for (sum = 0; n > 0; sum += n % 10, n /= 10);  
+    return sum;
+}
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    long a=0,b=0;
+	    long u,v;
+	    while(n--)
+	    {
+	        cin>>u>>v;
+	        long sumA = digSum(u);
+	        long sumB = digSum(v);
+	        if(sumB>sumA)
+	        b++;
+	        else if(sumA>sumB)
+	        a++;
+	        else
+	        {
+	            a++;
+	            b++;
+	        }
+	    }
+	    if(a>b)
+	    cout<<"0"<<" "<<a;
+	    else if(a<b)
+	    {
+	      cout<<"1"<<" "<<b;
+	    }
+	    else
+	    {
+	        cout<<"2"<<" "<<a;
+	    }
+	}
+	return 0;
+}
